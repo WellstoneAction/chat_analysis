@@ -8,7 +8,7 @@
 # Ask the user for the name of the file they want to load. Clean and load text file into memory, or re-prompt for file name is first file was not found, was empty, or was in the wrong format. Learning platform outputs to *.txt files, which must be in "logs" directory
 messages = []
 while len(messages) == 0:
-    print "\n\n Welcome to the command-line chat log analysis utility suite."
+    print "\n\n Welcome to the command-line chat log analysis tool suite."
     filename = raw_input("\nEnter the name of the logfile you want to load and press enter: logs/")
     try:
         logfile = open('logs/'+filename, 'r')
@@ -34,9 +34,19 @@ print count, "total messages extracted successfully.", dirtycount, " messages ha
 logfile.close()
 
 
-# Offer analysis options
 
-# (1) Keyphrase search plus context printer (e.g. search for "libertarian" or "mobilizing" and output chat message it occurs in, plus its user and date)
-# (2) Engagement metrics (Pull top commentors, plus who is talking and how often?)
-# (3) Threads (pull out and analyze threads where users are talking to each other)
-# (4) Conceptual development (chronolical threads of use of X term by Y user over time)
+
+# Offer analysis options and prompt user to choose one
+print '\n\nThis tool suite currently offers the following analysis tools:'
+print '\t(1) Keyphrase search plus context printer (e.g. search for "libertarian" or "mobilizing and output chat message it occurs in, plus its user and date)'
+print '\t(2) Engagement metrics (Pull top commentors, plus who is talking and how often?)'
+print '\t(3) Threads (pull out and analyze threads where users are talking to each other)'
+print '\t(4) Conceptual development (chronolical threads of use of X term by Y user over time)'
+utility_id = raw_input("Please enter the number of the tool you want to run: ")
+
+# Use switch statements to run different analysis files
+
+
+
+
+
