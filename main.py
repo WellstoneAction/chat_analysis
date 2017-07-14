@@ -1,13 +1,37 @@
-import nltk # Natural language toolkit
+#import nltk # Natural language toolkit
 
 
 # Establish database scheme via ORM
 # =================================
 
 
-# Clean and load text files into memory. Learning platform outputs to *.txt files, which must be in "logs" directory
+# Ask the user for the name of the file they want to load. Clean and load text file into memory, or re-prompt for file name is first file was not found, was empty, or was in the wrong format. Learning platform outputs to *.txt files, which must be in "logs" directory
+messages = []
+while len(messages) == 0:
+    print "\n\n Welcome to the command-line chat log analysis utility suite."
+    filename = raw_input("\nEnter the name of the logfile you want to load and press enter: logs/")
+    try:
+        logfile = open('logs/'+filename, 'r')
+        messages = logfile.readlines()
+    except:
+        print "I'm sorry, that file is either empty, not a .txt file, or not in the logs folder."
 
 
+count = 0
+dirtycount = 0
+for m in messages:
+    try:
+        timestamp = m.split("From")[0].strip()
+        user = m.split("From ")[1].split(" : ")[0]
+        message = m.split(" : ")[1].strip()
+        count+=1
+    except:
+        print m
+        dirtycount+=1
+
+print count, "total messages extracted successfully.", dirtycount, " messages had errors."
+
+logfile.close()
 
 
 # Offer analysis options
