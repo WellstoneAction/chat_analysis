@@ -1,5 +1,5 @@
 """
-WSGI config for chat_analysis project.
+WSGI config for wfv project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

@@ -1,0 +1,91 @@
+{% load staticfiles %}
+{% load humanize %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--
+        Uncomment this for auto refreshing browser when front-end coding
+         <meta http-equiv="refresh" content="3">
+        -->
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Wellstone Family Twitter Analytics</title>
+        <meta name="title" content="Wellstone Family Twitter Analytics: Language Trends Before and After Training"/>
+
+        <!-- Font, Bootstrap, and jQuery -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+       <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+        
+
+        <!-- OpenGraph tags for social media sharing -->
+        <meta property="og:title" content="Wellstone Family Twitter Analytics" />
+        <meta property="og:type" content="website" />
+        <!-- <meta property="og:url" content="http://www.nowhereyet.com" /> -->
+        <meta property="og:site_name" content="Wellstone Family Twitter Analytics" />
+        <!--<meta property="og:image" content="https://s3.amazonaws.com/wellstone/some_image.jpg" /> -->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- swf object -->
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+               </button>
+                <div class="collapse navbar-collapse">
+                    <a class="navbar-brand logo" href="{% url 'index' %}">
+                        <img src="{% static 'img/wellstone_circle.png' %}">
+                        <h4>Wellstone Family Analytics</h4>
+                    </a>
+                    <div class="row">
+                    <div class="pull-right quickstats-holder">
+                        <h5>Currently analyzing <span class="teal-text"><b>{{ tweets_count|intcomma }}</b></span> tweets</h5>
+                        <h5>from <span class="teal-text"><b>{{ alumni_count }}</b></span> alumni</h5>
+                        <h5>across <span class="teal-text"><b>{{ trainings_count }}</b></span> trainings</h5>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        {% block content %}
+
+        {% endblock %}
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        Copyright © 2016 Wellstone Action. All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    </body>
+
+</html>

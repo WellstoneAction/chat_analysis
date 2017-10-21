@@ -1,0 +1,89 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+    <div class="container-fluid">
+ 
+        <div class="row">
+  
+            <div class="col-sm-8 map-panel">
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="row term-search text-center">
+                            <input class="input-lg" placeholder="Enter a keyword or phrase to see before/after results"></input>
+                            <button class="btn btn-lg">Analyze</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        
+                        <div id="map-canvas">
+                          
+                        </div>
+                        <script>
+                            function initMap() {
+
+                                var map = new google.maps.Map(document.getElementById('map-canvas'), {
+                                  center: {lat: 42.877742, lng: -97.380979},
+                                  zoom: 4,
+                                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                                });
+
+                                {% for alum in alumni %}
+                                  var marker = new google.maps.Marker({
+                                    position: {lat: {{alum.latitude}}, lng: {{alum.longitude}} },
+                                    map: map,
+                                    id: "{{alum.id}}",
+                                    title: "{{alum.first_name}} {{alum.last_name}}\n{{alum.location}}"
+                                  });
+                                {% endfor %}
+                            }
+
+                        </script>
+
+                        <script src="{% static 'js/map.js' %}"></script>
+
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdQa5vpC7SE5LdZAXXxGNcKJpJGmBYd6E&libraries=places&callback=initMap"
+                        async defer></script>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <h3>Training Alumni</h3>
+                <div class="alum-holder">
+                {% for alum in alumni %}
+                    <div class="row alum">
+                        <div class="col-xs-2 alum-img-holder">
+                            {% if alum.profile_image_url %}
+                                <img src="{{ alum.profile_image_url }}" />
+                            {% endif %}
+                        </div>
+                        <div class="col-xs-10">
+                            <h4><b class="teal-text">{{alum.first_name}} {{alum.last_name}}</b> (@{{alum.screen_name}})</h4>
+                            {% if alum.location != None %}
+                                <span><b>{{alum.location}}</b></span>
+                            {% endif %}
+                            {% for training in alum.trainings.all %}
+                              <br>{{training.name}}
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+{% endblock %}

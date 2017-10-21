@@ -1,0 +1,111 @@
+/* Overall page style */
+
+body {
+    font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    color: #5b5958;
+}
+
+h3, h4 {
+	color: #5c5a5a;
+}
+
+a:hover {text-decoration: none;}
+
+.green-text {
+	color: #A1bf19;
+}
+.teal-text {
+	color: #008961;
+}
+
+.blue-text {
+	color: #3cb4e7;
+}
+
+
+/* Header style */
+.navbar-brand {padding: 0px 0px 0px 0px;}
+.logo { height: 75px; }
+.logo h4 { display: inline-block; }
+.logo img { height: 90%; display: inline-block; margin-right: 1em;}
+.quickstats-holder {padding-top: 0.4em; text-align: right;}
+.quickstats-holder h5 { margin: 0.25em; }
+
+
+/*Search style */
+.term-search {
+	padding: 1em 0em;
+}
+
+.term-search input {
+	vertical-align: middle;
+	margin: 0.1em 0.75em 0e, 0.75em;
+	width: 70%;
+}
+
+.term-search button {
+	vertical-align: middle;
+}
+
+/* Map style */
+#map-canvas {
+	height: 750px;
+}
+
+#map-canvas-results-page {
+	height: 350px;
+}
+
+
+/* Results style */
+
+#results-frame {
+	height: 400px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin: 0.25em;
+	padding-top: 1em;
+	border: 2px solid gray;
+	border-radius: 5px;
+}
+
+
+/* Alumni list style */
+.alum-holder {
+    height: 750px;
+    overflow-y: scroll;
+    margin-right: 5px;
+}
+
+.alum-holder h4 {
+	margin: 0px;
+}
+
+
+.alum {
+	border: 1px solid #A1bf19;
+	border-radius: 5px;
+	margin: 10px 4px;
+	padding: 5px;
+	overflow: auto;
+}
+
+.alum-img-holder {
+	overflow: hidden;
+
+}
+.alum img {
+	margin-left: -10px;
+}
+
+.alum:hover {
+	color: white;
+	background-color: #A1bf19;
+}
+
+
+
+/* Footer style */
+
+footer { padding: 2em; }

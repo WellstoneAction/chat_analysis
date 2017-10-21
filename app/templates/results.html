@@ -1,0 +1,115 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+    <div class="container-fluid">
+ 
+        <div class="row">
+  
+            <div class="col-sm-8 map-panel">
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="row term-search text-center">
+                            <input class="input-lg" placeholder="Enter a keyword or phrase to see before/after results"></input>
+                            <button class="btn btn-lg">Analyze</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        
+                        <div id="map-canvas-results-page">
+                          
+                        </div>
+
+                        <script>
+                        function initMap() {
+
+                          var map = new google.maps.Map(document.getElementById('map-canvas-results-page'), {
+                                center: {lat: 42.877742, lng: -97.380979},
+                                zoom: 4,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                              });
+
+                          {% for alum in alumni %}
+                          var marker = new google.maps.Marker({
+                            position: {lat: {{alum.latitude}}, lng: {{alum.longitude}} },
+                            map: map,
+                            title: "{{alum.first_name}} {{alum.last_name}}\n{{alum.location}}"
+                          });
+                          {% endfor %}
+                        }
+                        </script>
+
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdQa5vpC7SE5LdZAXXxGNcKJpJGmBYd6E&libraries=places&callback=initMap"
+                        async defer>
+                        </script>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="row" id="results-frame">
+                            <div class="col-xs-6">
+                                <h4 class="text-center">Average mention of "<span><b>{{search_term}}</b></span>"<b class="green-text"> before</b> Wellstone training</h4>
+                                <div class="text-center"><h2><b class="green-text">18/year</b></h2></div><br>
+                              {% for tweet in tweets %}
+                                    <p>
+                                        <b>{{tweet.alumnus.first_name}} {{tweet.alumnus.last_name}}</b> (@{{ tweet.alumnus.screen_name }}) - ({{tweet.date_created}}: {{ tweet.text }}
+                                    </p>
+                              {% endfor %}
+
+                            </div>
+                            <div class="col-xs-6">
+                                <h4 class="text-center">Average mention of "<span><b>{{search_term}}</b></span>"<b class="blue-text"> after</b> Wellstone training:</h4>
+                                <div class="text-center"><h2><b class="blue-text">32/year</b></h2></div><br>
+                              {% for tweet in tweets %}
+                                    <p>
+                                        <b>{{tweet.alumnus.first_name}} {{tweet.alumnus.last_name}}</b> (@{{ tweet.alumnus.screen_name }}) - ({{tweet.date_created}}: {{ tweet.text }}
+                                    </p>
+                              {% endfor %}
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <h3>Training Alumni</h3>
+                <div class="alum-holder">
+                {% for alum in alumni %}
+                    <div class="row alum">
+                        <div class="col-xs-2 alum-img-holder">
+                            {% if alum.profile_image_url %}
+                                <img src="{{ alum.profile_image_url }}" />
+                            {% endif %}
+                        </div>
+                        <div class="col-xs-10">
+                            <h4><b class="teal-text">{{alum.first_name}} {{alum.last_name}}</b> (@{{alum.screen_name}})</h4>
+                            {% if alum.location != None %}
+                                <span><b>{{alum.location}}</b></span>
+                            {% endif %}
+                            {% for training in alum.trainings.all %}
+                              <br>{{training.name}}
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+{% endblock %}
