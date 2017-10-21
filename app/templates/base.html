@@ -14,8 +14,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Wellstone Family Twitter Analytics</title>
-        <meta name="title" content="Wellstone Family Twitter Analytics: Language Trends Before and After Training"/>
+        <title>Wellstone Online Learning Chat Analysis Tool</title>
+        <meta name="title" content="Wellstone Online Learning Chat Analysis Tool"/>
 
         <!-- Font, Bootstrap, and jQuery -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
@@ -54,13 +54,14 @@
                 <div class="collapse navbar-collapse">
                     <a class="navbar-brand logo" href="{% url 'index' %}">
                         <img src="{% static 'img/wellstone_circle.png' %}">
-                        <h4>Wellstone Family Analytics</h4>
+                        <h4>Wellstone Action - Online Learning Chat Analysis Tool</h4>
                     </a>
                     <div class="row">
                     <div class="pull-right quickstats-holder">
-                        <h5>Currently analyzing <span class="teal-text"><b>{{ tweets_count|intcomma }}</b></span> tweets</h5>
-                        <h5>from <span class="teal-text"><b>{{ alumni_count }}</b></span> alumni</h5>
-                        <h5>across <span class="teal-text"><b>{{ trainings_count }}</b></span> trainings</h5>
+                        <h5>Currently analyzing <span class="teal-text"><b>{{ messages_count|intcomma }}</b></span> chat messages</h5>
+                        <h5>from <span class="teal-text"><b>{{ person_count|intcomma }}</b></span> unique users</h5>
+                        <h5>across <span class="teal-text"><b>{{ trainings_count|intcomma }}</b></span> training sessions</h5>
+                        <h5>and <span class="teal-text"><b>{{ series_count|intcomma }}</b></span> training series.
                     </div>
                 </div>
             </div>
@@ -74,7 +75,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        Copyright © 2016 Wellstone Action. All Rights Reserved.
+                        Copyright © 2017 Wellstone Action. All Rights Reserved.
                     </div>
                 </div>
             </div>
