@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 *.pyc
 venv
 logs
 chat_analysis/settings.py
+=======
+logs/*.txt
+venv
+>>>>>>> bebc38a8937780ac6290a4c286f6b20d48b24393
