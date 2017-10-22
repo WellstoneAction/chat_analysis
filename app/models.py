@@ -9,7 +9,7 @@ from django.db import models
 class Series(models.Model):
     title = models.CharField(max_length = 150, null = True, blank = True)
     partner = models.CharField(max_length = 45, default = "Wellstone Action")
-    start_date = models.CharFielmodels.DateField(null = True, blank = True)
+    start_date = models.DateField(null = True, blank = True)
     end_date = models.DateField(null = True, blank = True)
 
     def __unicode__(self):
@@ -20,7 +20,7 @@ class Lesson(models.Model):
     number = models.CharField(max_length = 3, null = True, blank=True)
     start_date = models.DateField(null = True, blank = True)
     end_date = models.DateField(null = True, blank = True)  
-    series = models.ForeignKey(Lesson)
+    series = models.ForeignKey(Series)
 
 
 class Training(models.Model):
