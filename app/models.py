@@ -41,6 +41,7 @@ class Person(models.Model):
     latitude = models.FloatField(default = 44.9778)
     first_name = models.CharField(max_length=45, null=True, blank=True)
     last_name = models.CharField(max_length=45, null=True, blank=True)
+    role = models.IntegerField(default = 1)# (1 = student, 2 = trainer, 3 = coach, 4 = other_staff, 5 = observer)
 
     def __unicode__(self):
         return self.screen_name
