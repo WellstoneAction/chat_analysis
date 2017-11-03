@@ -36,8 +36,12 @@ class Command(BaseCommand):
                         screenname = raw_message[0]
                         if screenname not in users:
                             users.append(screenname)
-                        print screenname
+                            #u = Person(screen_name = screenname, first_name = screenname.strip().split(" ")[0], last_name = screenname.strip().split(" ")[1])
+                            #u.save()
                         text = raw_message[1].strip("\n")
+                        print text
+                        m = Message(text = text)
+                        m.save()
                         count+=1
                     except:
                         dirty_lines.append(m)

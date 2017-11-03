@@ -75,7 +75,6 @@ a:hover {text-decoration: none;}
 .alum-holder {
     height: 750px;
     overflow-y: scroll;
-    margin-right: 5px;
 }
 
 .alum-holder h4 {
@@ -85,18 +84,8 @@ a:hover {text-decoration: none;}
 
 .alum {
 	border: 1px solid #A1bf19;
+	padding: 10px;
 	border-radius: 5px;
-	margin: 10px 4px;
-	padding: 5px;
-	overflow: auto;
-}
-
-.alum-img-holder {
-	overflow: hidden;
-
-}
-.alum img {
-	margin-left: -10px;
 }
 
 .alum:hover {

@@ -51,15 +51,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                </button>
-                <div class="collapse navbar-collapse">
-                    <a class="navbar-brand logo" href="{% url 'index' %}">
+               <a class="navbar-brand logo" href="{% url 'index' %}">
                         <img src="{% static 'img/wellstone_circle.png' %}">
                         <h4>Wellstone Action - Online Learning Chat Analysis Tool</h4>
                     </a>
+                <div class="collapse navbar-collapse">
+                    
                     <div class="row">
                     <div class="pull-right quickstats-holder">
                         <h5>Currently analyzing <span class="teal-text"><b>{{ messages_count|intcomma }}</b></span> chat messages</h5>
-                        <h5>from <span class="teal-text"><b>{{ person_count|intcomma }}</b></span> unique users</h5>
+                        <h5>from <span class="teal-text"><b>{{ people_count|intcomma }}</b></span> unique users</h5>
                         <h5>across <span class="teal-text"><b>{{ trainings_count|intcomma }}</b></span> training sessions</h5>
                         <h5>and <span class="teal-text"><b>{{ series_count|intcomma }}</b></span> training series.
                     </div>
