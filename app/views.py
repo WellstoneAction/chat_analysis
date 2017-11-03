@@ -8,7 +8,7 @@ from datetime import date
 
 
 def index(request):
-    person = Person.objects.all().order_by('screen_name')
+    people = Person.objects.all().order_by('screen_name')
     people_count = Person.objects.count()
     messages_count = Message.objects.count()
     trainings_count = Training.objects.count()
